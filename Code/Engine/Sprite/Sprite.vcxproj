@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FEC11094-3849-4FC6-AB66-5EAD00EFE84A}</ProjectGuid>
-    <RootNamespace>DebugFunctions</RootNamespace>
+    <ProjectGuid>{0A0FE7D1-25F1-4AF2-955F-96E16673E866}</ProjectGuid>
+    <RootNamespace>Sprite</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -125,10 +125,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DebugFunctions.h" />
+    <ClInclude Include="BackBuffer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DebugFunctions.cpp" />
+    <ClCompile Include="BackBuffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
