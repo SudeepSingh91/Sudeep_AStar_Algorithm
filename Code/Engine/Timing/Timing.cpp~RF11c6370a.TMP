@@ -1,0 +1,31 @@
+#include "Timing.h"
+
+#include "../DebugFunctions/DebugFunctions.h"
+
+namespace Engine
+{
+	namespace Timing
+	{
+		Timing* Timing::m_timing = 0;
+		
+		Timing::Timing()
+		{
+
+		}
+
+		Timing::~Timing()
+		{
+
+		}
+
+		Timing* Timing::GetTimer()
+		{
+			if (m_timing == 0)
+			{
+				m_timing = new Timing;
+			}
+
+			return m_timing;
+		}
+	}
+}
