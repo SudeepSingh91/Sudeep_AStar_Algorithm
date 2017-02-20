@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0A0FE7D1-25F1-4AF2-955F-96E16673E866}</ProjectGuid>
-    <RootNamespace>Sprite</RootNamespace>
+    <ProjectGuid>{3428B225-AB6C-4D01-B5AA-CDDF9700D8DA}</ProjectGuid>
+    <RootNamespace>Math</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -129,14 +129,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BackBuffer-inl.h" />
-    <ClInclude Include="BackBuffer.h" />
-    <ClInclude Include="Sprite-inl.h" />
-    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Vector2\Vector2-inl.h" />
+    <ClInclude Include="Vector2\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BackBuffer.cpp" />
-    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Vector2\Vector2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

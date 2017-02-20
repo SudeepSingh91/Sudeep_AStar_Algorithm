@@ -13,27 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Vector2">
+      <UniqueIdentifier>{e530e1ed-2637-4db1-9ef0-9982ec5ed85e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vector2">
+      <UniqueIdentifier>{7ab24f71-83fa-464c-a4b0-4c33e9f2f42b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackBuffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Vector2\Vector2.h">
+      <Filter>Header Files\Vector2</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BackBuffer-inl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite-inl.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Vector2\Vector2-inl.h">
+      <Filter>Header Files\Vector2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BackBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Vector2\Vector2.cpp">
+      <Filter>Source Files\Vector2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -27,6 +27,8 @@ LRESULT CALLBACK WndProc(const HWND i_hWnd, const UINT i_msg, const WPARAM i_wPa
 
 bool CreateMainWindow(const HINSTANCE i_hInstance)
 {
+	assert(i_hInstance != nullptr);
+	
 	happInstance = i_hInstance;
 
 	LOGBRUSH lb;
@@ -77,7 +79,7 @@ int WINAPI WinMain(const HINSTANCE i_hInstance, const HINSTANCE i_hprevInstance,
 	ShowWindow(hmainWindow, i_showCmd);
 	UpdateWindow(hmainWindow);
 	
-	MSG msg = MessageLoop();
+	const MSG msg = MessageLoop();
 
 	return (int)msg.wParam;
 }

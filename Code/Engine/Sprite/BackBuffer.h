@@ -13,11 +13,11 @@ namespace Engine
 			BackBuffer(const HWND i_hwnd, const int i_width, const int i_height);
 			~BackBuffer();
 
-			HDC GetDC() const;
-			int width() const;
-			int height() const;
+			inline HDC getDC() const;
+			inline int width() const;
+			inline int height() const;
 
-			void Present();
+			void Present() const;
 
 		private:
 			BackBuffer(const BackBuffer& i_buffer);
@@ -32,5 +32,7 @@ namespace Engine
 		};
 	}
 }
+
+#include "BackBuffer-inl.h"
 
 #endif
