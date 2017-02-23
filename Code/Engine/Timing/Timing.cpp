@@ -103,5 +103,20 @@ namespace Engine
 
 			m_totalTicksElapsed_duringRun.QuadPart = totalTicksElapsed.QuadPart - m_totalTicksElapsed_atInitializion.QuadPart;
 		}
+
+		void Timing::StopTimer()
+		{
+			if (m_timing != 0)
+			{
+				delete m_timing;
+				m_isInitialized = false;
+
+				DEBUG_PRINT("Destroyed Timer");
+			}
+			else
+			{
+				DEBUG_PRINT("Timer does not exist for destruction");
+			}
+		}
 	}
 }

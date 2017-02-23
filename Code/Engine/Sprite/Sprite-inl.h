@@ -11,15 +11,5 @@ namespace Engine
 		{
 			return m_imagebm.bmHeight;
 		}
-
-		inline Math::Vector2 Sprite::pos() const
-		{
-			return m_pos;
-		}
-
-		inline Math::Vector2 Sprite::vel() const
-		{
-			return m_vel;
-		}
 	}
 }

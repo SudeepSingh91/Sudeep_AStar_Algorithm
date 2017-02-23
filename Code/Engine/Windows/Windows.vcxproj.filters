@@ -13,24 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Gameplay">
-      <UniqueIdentifier>{e6974a62-efab-45a9-b4d4-c0e38cef3f61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Gameplay">
-      <UniqueIdentifier>{755421a9-aa4f-4b33-a8ef-37892d3953fd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Code\Game\AStar_Algorithm\main.cpp">
+    <ClInclude Include="Windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.cpp">
-      <Filter>Source Files\Gameplay</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h">
-      <Filter>Header Files\Gameplay</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

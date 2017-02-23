@@ -18,6 +18,7 @@ namespace Engine
 			float GetElapsedSecondCount_total();
 			float GetElapsedSecondCount_duringPreviousFrame();
 			void OnNewFrame();
+			void StopTimer();
 
 		private:
 			Timing();
