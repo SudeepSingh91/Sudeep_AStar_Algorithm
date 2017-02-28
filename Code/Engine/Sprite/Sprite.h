@@ -16,6 +16,8 @@ namespace Engine
 		{
 		public:
 			Sprite(const HINSTANCE i_hinstance, const int i_imageid, const int i_maskid);
+			Sprite(const Sprite& i_sprite);
+			Sprite& operator=(const Sprite& i_sprite);
 
 			~Sprite();
 
@@ -26,9 +28,6 @@ namespace Engine
 			void Draw(const HDC i_backbufferDC, const HDC i_spriteDC, const Math::Vector2* const i_pos) const;
 
 		private:
-			Sprite(const Sprite& i_sprite);
-			Sprite& operator=(const Sprite& i_sprite);
-
 			BITMAP m_imagebm;
 			BITMAP m_maskbm;
 

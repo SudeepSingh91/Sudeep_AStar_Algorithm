@@ -8,6 +8,8 @@ namespace Engine
 	{
 		BackBuffer::BackBuffer(const HWND i_hwnd, const int i_width, const int i_height) : m_hwnd(i_hwnd), m_width(i_width), m_height(i_height)
 		{
+			assert(i_hwnd != nullptr);
+			
 			const HDC hWndDc = GetDC(m_hwnd);
 
 			assert(hWndDc != nullptr);

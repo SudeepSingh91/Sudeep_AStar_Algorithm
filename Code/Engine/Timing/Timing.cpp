@@ -108,8 +108,8 @@ namespace Engine
 		{
 			if (m_timing != 0)
 			{
-				delete m_timing;
 				m_isInitialized = false;
+				delete m_timing;
 
 				DEBUG_PRINT("Destroyed Timer");
 			}

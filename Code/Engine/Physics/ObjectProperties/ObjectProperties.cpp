@@ -23,5 +23,17 @@ namespace Engine
 		{
 			DEBUG_PRINT("Called Copy constructor for object properties with mass %f and drag %f", m_mass, m_drag);
 		}
+
+		ObjectProperties& ObjectProperties::operator=(const ObjectProperties& i_objProperty)
+		{
+			m_pos = i_objProperty.m_pos;
+			m_vel = i_objProperty.m_vel;
+			m_mass = i_objProperty.m_mass;
+			m_vel = i_objProperty.m_vel;
+
+			DEBUG_PRINT("Called Assignment operator for object properties with mass %f and drag %f", m_mass, m_drag);
+
+			return *this;
+		}
 	}
 }

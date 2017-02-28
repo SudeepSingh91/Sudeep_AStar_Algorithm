@@ -23,7 +23,18 @@
     <ClCompile Include="Code\Game\AStar_Algorithm\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay-inl.h" />
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AStar_Algorithm.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Images\Alien.bmp" />
+    <Image Include="Assets\Images\Alien_mask.bmp" />
+    <Image Include="Assets\Images\Jet.bmp" />
+    <Image Include="Assets\Images\Jet_mask.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{78626C82-8941-4E05-ADB7-5A7E3BC26D1B}</ProjectGuid>
@@ -112,6 +123,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BinDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Windows.lib;GameObject.lib;Physics.lib;Sprite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,6 +139,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BinDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Windows.lib;GameObject.lib;Physics.lib;Sprite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -144,6 +159,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BinDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Windows.lib;GameObject.lib;Physics.lib;Sprite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,6 +179,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BinDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Windows.lib;GameObject.lib;Physics.lib;Sprite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

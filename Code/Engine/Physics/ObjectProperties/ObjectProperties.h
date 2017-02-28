@@ -17,8 +17,6 @@ namespace Engine
 			ObjectProperties();
 			ObjectProperties(const Math::Vector2& i_pos, const Math::Vector2& i_vel, const float i_mass, const float i_drag);
 			ObjectProperties(const ObjectProperties& i_objProperty);
-			
-		private:
 			ObjectProperties& operator=(const ObjectProperties& i_objProperty);
 		};
 	}
