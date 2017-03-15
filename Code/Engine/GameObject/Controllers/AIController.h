@@ -5,20 +5,20 @@
 
 namespace Engine
 {
-	namespace Physics
+	namespace GameObject
 	{
 		class GameObject;
 
 		class AIController : public IGameObjectController 
 		{
 		public:
+			AIController(const GameObject* const i_gameObj);
 			~AIController();
 
-			void SetGameObject(const GameObject* i_gameObj) final;
-			void Update(const float dt) final;
+			void Update(const float i_dt, const Math::Vector2& i_force) final;
 
 		private:
-			GameObject* m_gameObj;
+			const GameObject* m_gameObj;
 		};
 	}
 }

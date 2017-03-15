@@ -24,11 +24,11 @@ namespace Engine
 
 			inline double Length() const;
 
-			inline Vector2 operator+(const Vector2& i_vec);
-			inline Vector2 operator-(const Vector2& i_vec);
+			inline Vector2 operator+(const Vector2& i_vec) const;
+			inline Vector2 operator-(const Vector2& i_vec) const;
 
-			inline Vector2 operator/(const float i_scalar);
-			inline Vector2 operator*(const float i_scalar);
+			inline Vector2 operator/(const float i_scalar) const;
+			inline Vector2 operator*(const float i_scalar) const;
 
 			inline Vector2& operator+=(const Vector2& i_vec);
 			inline Vector2& operator-=(const Vector2& i_vec);

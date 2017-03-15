@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-#include "../Sprite/Sprite.h"
+#include "../../Sprite/Sprite.h"
 
 namespace Engine
 {

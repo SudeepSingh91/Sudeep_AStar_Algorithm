@@ -4,10 +4,16 @@
 #include <Windows.h>
 
 namespace Engine
-{
+{	
 	namespace GameObject
 	{
 		class GameObject;
+		class IGameObjectController;
+	}
+
+	namespace Math
+	{
+		class Vector2;
 	}
 
 	namespace Sprite
@@ -29,7 +35,7 @@ namespace Game
 			void InitializeSprite(HINSTANCE i_appid);
 			inline void InitializeBackBuffer(const HWND i_hwnd, const int i_width, const int i_height);
 			inline void DrawSprites();
-			//void UpdateGameObjects(const float dt);
+			void UpdateGameObjects(const float i_dt);
 
 		private:
 			Gameplay();
@@ -40,6 +46,7 @@ namespace Game
 
 			Engine::GameObject::GameObject* m_player;
 			Engine::GameObject::GameObject* m_enemy;
+			Engine::GameObject::IGameObjectController* m_playerController;
 			Engine::Sprite::BackBuffer* m_backbuffer;
 			HDC m_spritedc;
 		};

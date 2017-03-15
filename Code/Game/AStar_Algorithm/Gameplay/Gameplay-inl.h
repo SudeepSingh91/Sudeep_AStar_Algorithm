@@ -1,6 +1,6 @@
 #include "Sprite/BackBuffer.h"
 #include "DebugFunctions/DebugFunctions.h"
-#include "GameObject/GameObject.h"
+#include "GameObject/GameObject/GameObject.h"
 
 namespace Game
 {

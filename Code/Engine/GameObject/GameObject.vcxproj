@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Controllers\AIController.h" />
+    <ClInclude Include="Controllers\IGameObjectController.h" />
+    <ClInclude Include="Controllers\PlayerController.h" />
+    <ClInclude Include="GameObject\GameObject-inl.h" />
+    <ClInclude Include="GameObject\GameObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Controllers\AIController.cpp" />
+    <ClCompile Include="Controllers\PlayerController.cpp" />
+    <ClCompile Include="GameObject\GameObject.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B43CC99-C3A5-44E5-8CD1-720D04E6DEA4}</ProjectGuid>
     <RootNamespace>GameObject</RootNamespace>
@@ -128,13 +140,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="GameObject-inl.h" />
-    <ClInclude Include="GameObject.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GameObject.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

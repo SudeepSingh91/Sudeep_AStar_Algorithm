@@ -13,21 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\ObjectProperties">
-      <UniqueIdentifier>{c0d5e66d-9c60-423f-ad6d-73ff75752c1a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ObjectProperties">
-      <UniqueIdentifier>{7a0934e4-27ca-435d-828b-cdaedf56a643}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ObjectProperties\ObjectProperties.h">
-      <Filter>Header Files\ObjectProperties</Filter>
+    <ClInclude Include="UserInput.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ObjectProperties\ObjectProperties.cpp">
-      <Filter>Source Files\ObjectProperties</Filter>
+    <ClCompile Include="UserInput.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

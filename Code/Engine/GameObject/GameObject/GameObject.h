@@ -3,7 +3,7 @@
 
 #include <Windows.h>
 
-#include "../Physics/ObjectProperties/ObjectProperties.h"
+#include "../../Physics/ObjectProperties/ObjectProperties.h"
 
 namespace Engine
 {
@@ -11,9 +11,9 @@ namespace Engine
 	{
 		class Sprite;
 	}
-	
+
 	namespace GameObject
-	{
+	{	
 		class GameObject
 		{
 		public:
@@ -25,6 +25,16 @@ namespace Engine
 			GameObject& operator=(GameObject&& i_obj);
 
 			~GameObject();
+
+			inline float Drag() const;
+			inline float Mass() const;
+			inline Math::Vector2 Pos() const;
+			inline Math::Vector2 Vel() const;
+
+			inline void Drag(const float i_drag);
+			inline void Mass(const float i_mass);
+			inline void Pos(const Math::Vector2& i_pos);
+			inline void Vel(const Math::Vector2& i_vel);
 
 			inline void Draw(const HDC i_backbufferDC, const HDC i_spriteDC);
 

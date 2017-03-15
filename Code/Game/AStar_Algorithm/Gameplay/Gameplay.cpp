@@ -2,8 +2,10 @@
 #include"../../resource1.h"
 
 #include "DebugFunctions/DebugFunctions.h"
-#include "GameObject/GameObject.h"
+#include "GameObject/GameObject/GameObject.h"
+#include "GameObject/Controllers/PlayerController.h"
 #include "Physics/ObjectProperties/ObjectProperties.h"
+#include "UserInput/UserInput.h"
 
 namespace Game
 {
@@ -44,6 +46,8 @@ namespace Game
 			assert(m_player != nullptr);
 
 			m_enemy = m_player + 1;
+
+			m_playerController = new Engine::GameObject::PlayerController(m_player);
 			
 			Engine::Physics::ObjectProperties playerprop(Engine::Math::Vector2(500.0f, 400.0f), Engine::Math::Vector2(0.0f, 0.0f), 10.0f, 0.4f);
 			Engine::Physics::ObjectProperties enemyprop(Engine::Math::Vector2(700.0f, 400.0f), Engine::Math::Vector2(0.0f, 0.0f), 8.0f, 0.6f);
@@ -54,6 +58,31 @@ namespace Game
 			m_spritedc = CreateCompatibleDC(0);
 
 			DEBUG_PRINT("Initialized Sprites");
+		}
+
+		void Gameplay::UpdateGameObjects(const float i_dt)
+		{
+			using namespace Engine;
+			
+			Math::Vector2 playerForce(0.0f, 0.0f);
+			if (UserInput::IsKeyPressed('W'))
+			{
+				playerForce = playerForce + Math::Vector2(0.0f, 5.0f);
+			}
+			else if (UserInput::IsKeyPressed('A'))
+			{
+				playerForce = playerForce - Math::Vector2(-5.0f, 0.0f);
+			}
+			else if (UserInput::IsKeyPressed('D'))
+			{
+				playerForce = playerForce - Math::Vector2(0.0f, 5.0f);
+			}
+			else if (UserInput::IsKeyPressed('S'))
+			{
+				playerForce = playerForce - Math::Vector2(0.0f, -5.0f);
+			}
+			
+			m_playerController->Update(i_dt, playerForce);
 		}
 	}
 }
