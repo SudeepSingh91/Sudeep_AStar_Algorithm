@@ -19,6 +19,8 @@ namespace Engine
 
 		private:
 			GameObject* const m_gameObj;
+			Math::Vector2* m_pos;
+			Math::Vector2* m_vel;
 		};
 	}
 }

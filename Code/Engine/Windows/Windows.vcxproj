@@ -145,6 +145,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Windows-inl.h" />
     <ClInclude Include="Windows.h" />
   </ItemGroup>
   <ItemGroup>

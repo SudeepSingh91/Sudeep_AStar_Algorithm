@@ -10,29 +10,32 @@ int WINAPI WinMain(const HINSTANCE i_hInstance, const HINSTANCE i_hprevInstance,
 	Engine::Windows::WindowData myWindow(i_hInstance);
 
 	Game::Gameplay::Gameplay* gameplay =  Game::Gameplay::Gameplay::GetGame();
-	gameplay->InitializeSprite(myWindow.appInstance());
-	gameplay->InitializeBackBuffer(myWindow.windowHandle(), 1200, 800);
+	gameplay->InitializeSprite(myWindow.AppInstance());
+	gameplay->InitializeBackBuffer(myWindow.WindowHandle(), 1200, 800);
 
-	ShowWindow(myWindow.windowHandle() , i_showCmd);
-	UpdateWindow(myWindow.windowHandle());
+	ShowWindow(myWindow.WindowHandle() , i_showCmd);
+	UpdateWindow(myWindow.WindowHandle());
 	
 	Engine::Timing::Timing* timer = Engine::Timing::Timing::GetTimer();
 	timer->Initialize();
-	float dt = timer->GetElapsedSecondCount_duringPreviousFrame();
-
-	//const MSG msg = myWindow.MessageLoop();
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(MSG));
 
-	while (GetMessage(&msg, 0, 0, 0))
+	while ((msg.wParam != WM_QUIT) && (!myWindow.IfEnded()))
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-
-		gameplay->UpdateGameObjects(dt);
-		gameplay->DrawSprites();
-		dt = timer->GetElapsedSecondCount_duringPreviousFrame();
+		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			timer->OnNewFrame();
+			float dt = timer->GetElapsedSecondCount_duringPreviousFrame();
+			gameplay->UpdateGameObjects(dt);
+			gameplay->DrawSprites();
+		}
 	}
 
 	return (int)msg.wParam;

@@ -9,7 +9,7 @@ namespace Engine
 		Timing* Timing::m_timing = 0;
 		
 		Timing::Timing() : m_secondsPerTick(0.0f), m_totalTicksElapsed_atInitializion({ 0 }), m_totalTicksElapsed_duringRun({ 0 }), 
-			m_totalTicksElapsed_previousFrame({ 0 }), m_isInitialized(false)
+			m_totalTicksElapsed_previousFrame({ 0 })
 		{
 			
 		}
@@ -31,69 +31,46 @@ namespace Engine
 		
 		void Timing::Initialize()
 		{
-			if (!m_isInitialized)
+			LARGE_INTEGER tickspersecond = { 0 };
+			if (QueryPerformanceFrequency(&tickspersecond) != FALSE)
 			{
-				LARGE_INTEGER tickspersecond = { 0 };
-				if (QueryPerformanceFrequency(&tickspersecond) != FALSE)
+				if (tickspersecond.QuadPart != 0.0)
 				{
-					if (tickspersecond.QuadPart != 0.0)
-					{
-						m_secondsPerTick = 1.0 / static_cast<double>(tickspersecond.QuadPart);
-					}
-					else
-					{
-						DEBUG_PRINT("Hardware doesn't support high resolution performance counters");
-						assert(false);
-					}
+					m_secondsPerTick = 1.0 / static_cast<double>(tickspersecond.QuadPart);
 				}
 				else
 				{
-					DEBUG_PRINT("Windows failed to query performance frequency");
+					DEBUG_PRINT("Hardware doesn't support high resolution performance counters");
 					assert(false);
 				}
-
-				if (QueryPerformanceCounter(&m_totalTicksElapsed_atInitializion) == FALSE)
-				{
-					DEBUG_PRINT("Windows failed to query performance counter");
-					assert(false);
-				}
-
-				m_isInitialized = true;
-				DEBUG_PRINT("Initialized timer");
 			}
 			else
 			{
-				DEBUG_PRINT("Timer has already been initialized");
+				DEBUG_PRINT("Windows failed to query performance frequency");
+				assert(false);
 			}
+
+			if (QueryPerformanceCounter(&m_totalTicksElapsed_atInitializion) == FALSE)
+			{
+				DEBUG_PRINT("Windows failed to query performance counter");
+				assert(false);
+			}
+
+			DEBUG_PRINT("Initialized timer");
 		}
 
 		float Timing::GetElapsedSecondCount_total()
 		{
-			if (!m_isInitialized)
-			{
-				Initialize();
-			}
-			
 			return static_cast<float>(static_cast<double>(m_totalTicksElapsed_duringRun.QuadPart) * m_secondsPerTick);
 		}
 
 		float Timing::GetElapsedSecondCount_duringPreviousFrame()
-		{
-			if (!m_isInitialized)
-			{
-				Initialize();
-			}
-			
+		{	
 			return static_cast<float>(static_cast<double>(m_totalTicksElapsed_duringRun.QuadPart - m_totalTicksElapsed_previousFrame.QuadPart) * m_secondsPerTick);
 		}
 
 		void Timing::OnNewFrame()
 		{
-			if (!m_isInitialized)
-			{
-				Initialize();
-			}
-			
 			m_totalTicksElapsed_previousFrame = m_totalTicksElapsed_duringRun;
 
 			LARGE_INTEGER totalTicksElapsed = { 0 };
@@ -108,7 +85,6 @@ namespace Engine
 		{
 			if (m_timing != 0)
 			{
-				m_isInitialized = false;
 				delete m_timing;
 
 				DEBUG_PRINT("Destroyed Timer");

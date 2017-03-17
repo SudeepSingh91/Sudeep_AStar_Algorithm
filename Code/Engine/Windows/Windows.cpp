@@ -6,19 +6,15 @@ namespace Engine
 {
 	namespace Windows
 	{
+		bool WindowData::m_hasEnded = false;
+		
 		LRESULT CALLBACK WndProc(const HWND i_hWnd, const UINT i_msg, const WPARAM i_wParam, const LPARAM i_lParam)
 		{
 			switch (i_msg)
 			{
-			case WM_KEYDOWN:
-				if (i_wParam == VK_ESCAPE)
-				{
-					DEBUG_PRINT("Pressed Escape");
-					::DestroyWindow(i_hWnd);
-				}
-				return 0;
 			case WM_DESTROY:
 				DEBUG_PRINT("Pressed close button on top right of window");
+				WindowData::SetEnded(true);
 				PostQuitMessage(0);
 				return 0;
 			}
@@ -56,30 +52,6 @@ namespace Engine
 			assert(m_windowHandle != 0);
 
 			DEBUG_PRINT("Created main window");
-		}
-
-		HINSTANCE WindowData::appInstance()
-		{
-			return m_appInstance;
-		}
-
-		HWND WindowData::windowHandle()
-		{
-			return m_windowHandle;
-		}
-
-		MSG WindowData::MessageLoop()
-		{
-			MSG msg;
-			ZeroMemory(&msg, sizeof(MSG));
-
-			while (GetMessage(&msg, 0, 0, 0))
-			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-
-			return msg;
 		}
 	}
 }

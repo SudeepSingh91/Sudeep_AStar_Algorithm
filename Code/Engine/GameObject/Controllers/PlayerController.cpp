@@ -7,24 +7,24 @@ namespace Engine
 {
 	namespace GameObject
 	{
-		PlayerController::PlayerController(const GameObject* const i_gameObj) : m_gameObj(const_cast<GameObject*>(i_gameObj))
+		PlayerController::PlayerController(const GameObject* const i_gameObj) : m_gameObj(const_cast<GameObject*>(i_gameObj)), m_pos(nullptr), m_vel(nullptr)
 		{
-
+			m_pos = new Math::Vector2;
+			m_vel = new Math::Vector2;
 		}
 		
 		PlayerController::~PlayerController()
 		{
-
+			delete m_pos;
+			delete m_vel;
 		}
 
 		void PlayerController::Update(const float i_dt, const Math::Vector2& i_force)
 		{
-			const Math::Vector2 acc = i_force / m_gameObj->Mass();
-			const Math::Vector2 newVel = m_gameObj->Vel() + (acc * i_dt);
-			m_gameObj->Vel(newVel * m_gameObj->Drag());
-
-			const Math::Vector2 newPos = m_gameObj->Pos() + m_gameObj->Vel();
-			m_gameObj->Pos(newPos);
+			*m_vel = m_gameObj->Vel() + (((i_force - (m_gameObj->Vel() * m_gameObj->Drag())) / m_gameObj->Mass()) * i_dt);
+			m_gameObj->Vel((*m_vel + m_gameObj->Vel()) / 2.0f);
+			*m_pos = m_gameObj->Pos() + m_gameObj->Vel();
+			m_gameObj->Pos(*m_pos);
 		}
 	}
 }

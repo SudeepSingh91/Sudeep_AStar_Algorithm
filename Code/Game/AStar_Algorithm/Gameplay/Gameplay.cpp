@@ -1,5 +1,5 @@
 #include "Gameplay.h"
-#include"../../resource1.h"
+#include "resource1.h"
 
 #include "DebugFunctions/DebugFunctions.h"
 #include "GameObject/GameObject/GameObject.h"
@@ -41,19 +41,21 @@ namespace Game
 		{
 			assert(i_appid != nullptr);
 			
-			m_player = static_cast<Engine::GameObject::GameObject*>(_aligned_malloc(2 * sizeof(Engine::GameObject::GameObject), 64));
+			using namespace Engine;
+
+			m_player = static_cast<GameObject::GameObject*>(_aligned_malloc(2 * sizeof(GameObject::GameObject), 64));
 
 			assert(m_player != nullptr);
 
 			m_enemy = m_player + 1;
-
-			m_playerController = new Engine::GameObject::PlayerController(m_player);
 			
-			Engine::Physics::ObjectProperties playerprop(Engine::Math::Vector2(500.0f, 400.0f), Engine::Math::Vector2(0.0f, 0.0f), 10.0f, 0.4f);
-			Engine::Physics::ObjectProperties enemyprop(Engine::Math::Vector2(700.0f, 400.0f), Engine::Math::Vector2(0.0f, 0.0f), 8.0f, 0.6f);
+			Physics::ObjectProperties playerprop(Math::Vector2(500.0f, 400.0f), Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
+			Physics::ObjectProperties enemyprop(Math::Vector2(700.0f, 400.0f), Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);
 
-			*m_player = Engine::GameObject::GameObject(i_appid, playerprop, IDB_ALIEN, IDB_ALIENMASK);
-			*m_enemy = Engine::GameObject::GameObject(i_appid, enemyprop, IDB_JET, IDB_JETMASK);
+			*m_player = GameObject::GameObject(i_appid, playerprop, IDB_ALIEN, IDB_ALIENMASK);
+			*m_enemy = GameObject::GameObject(i_appid, enemyprop, IDB_JET, IDB_JETMASK);
+
+			m_playerController = new GameObject::PlayerController(m_player);
 
 			m_spritedc = CreateCompatibleDC(0);
 
@@ -65,23 +67,24 @@ namespace Game
 			using namespace Engine;
 			
 			Math::Vector2 playerForce(0.0f, 0.0f);
+
 			if (UserInput::IsKeyPressed('W'))
 			{
-				playerForce = playerForce + Math::Vector2(0.0f, 5.0f);
+				playerForce = playerForce + Math::Vector2(0.0f, -10.0f);
 			}
 			else if (UserInput::IsKeyPressed('A'))
 			{
-				playerForce = playerForce - Math::Vector2(-5.0f, 0.0f);
+				playerForce = playerForce + Math::Vector2(-10.0f, 0.0f);
 			}
 			else if (UserInput::IsKeyPressed('D'))
 			{
-				playerForce = playerForce - Math::Vector2(0.0f, 5.0f);
+				playerForce = playerForce + Math::Vector2(10.0f, 0.0f);
 			}
 			else if (UserInput::IsKeyPressed('S'))
 			{
-				playerForce = playerForce - Math::Vector2(0.0f, -5.0f);
+				playerForce = playerForce + Math::Vector2(0.0f, 10.0f);
 			}
-			
+
 			m_playerController->Update(i_dt, playerForce);
 		}
 	}

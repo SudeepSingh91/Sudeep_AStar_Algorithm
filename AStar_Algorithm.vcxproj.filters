@@ -32,17 +32,12 @@
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h">
       <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay-inl.h">
       <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="AStar_Algorithm.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\resource1.h">
+      <Filter>Header Files\Gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Images\Alien.bmp">
@@ -57,5 +52,10 @@
     <Image Include="Assets\Images\Jet_mask.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Code\Game\AStar_Algorithm\Gameplay\AStar_Algorithm.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

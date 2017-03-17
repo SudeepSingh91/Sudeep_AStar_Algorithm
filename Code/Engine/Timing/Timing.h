@@ -31,7 +31,6 @@ namespace Engine
 			LARGE_INTEGER m_totalTicksElapsed_atInitializion;
 			LARGE_INTEGER m_totalTicksElapsed_duringRun;
 			LARGE_INTEGER m_totalTicksElapsed_previousFrame;
-			bool m_isInitialized;
 		};
 	}
 }

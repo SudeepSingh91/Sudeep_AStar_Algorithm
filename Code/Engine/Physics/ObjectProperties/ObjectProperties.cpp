@@ -29,7 +29,7 @@ namespace Engine
 			m_pos = i_objProperty.m_pos;
 			m_vel = i_objProperty.m_vel;
 			m_mass = i_objProperty.m_mass;
-			m_vel = i_objProperty.m_vel;
+			m_drag = i_objProperty.m_drag;
 
 			DEBUG_PRINT("Called Assignment operator for object properties with mass %f and drag %f", m_mass, m_drag);
 

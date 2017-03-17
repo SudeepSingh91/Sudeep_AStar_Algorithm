@@ -25,16 +25,16 @@
   <ItemGroup>
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay-inl.h" />
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h" />
-    <ClInclude Include="resource1.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="AStar_Algorithm.rc" />
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Images\Alien.bmp" />
     <Image Include="Assets\Images\Alien_mask.bmp" />
     <Image Include="Assets\Images\Jet.bmp" />
     <Image Include="Assets\Images\Jet_mask.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Code\Game\AStar_Algorithm\Gameplay\AStar_Algorithm.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{78626C82-8941-4E05-ADB7-5A7E3BC26D1B}</ProjectGuid>

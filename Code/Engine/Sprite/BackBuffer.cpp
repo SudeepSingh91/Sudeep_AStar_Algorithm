@@ -46,8 +46,8 @@ namespace Engine
 		void BackBuffer::Present() const
 		{
 			HDC wndHdc = GetDC(m_hwnd);
-
-			assert(wndHdc != nullptr);
+			
+			assert(wndHdc);
 
 			BitBlt(wndHdc, 0, 0, m_width, m_height, m_hdc, 0, 0, SRCCOPY);
 			ReleaseDC(m_hwnd, wndHdc);

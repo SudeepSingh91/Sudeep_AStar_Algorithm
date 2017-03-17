@@ -84,9 +84,6 @@ namespace Engine
 			const int sprWidth = width();
 			const int sprHeight = height();
 
-			if (i_pos->y() > 400.0f)
-				int x = 5;
-
 			const int halvingValue = 2;
 			const int posx = static_cast<int>(i_pos->x() - (sprWidth / halvingValue));
 			const int posy = static_cast<int>(i_pos->y() - (sprHeight / halvingValue));
