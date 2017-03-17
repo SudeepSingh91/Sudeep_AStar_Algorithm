@@ -14,10 +14,9 @@ namespace Engine
 			
 		}
 
-		Vector2::Vector2(const Vector2& i_vec)
+		Vector2::Vector2(const Vector2& i_vec) : m_x(i_vec.m_x), m_y(i_vec.m_y)
 		{
-			m_x = i_vec.x();
-			m_y = i_vec.y();
+			
 		}
 
 		Vector2& Vector2::operator=(const Vector2& i_vec)

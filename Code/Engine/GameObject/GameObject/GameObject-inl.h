@@ -16,7 +16,7 @@ namespace Engine
 
 		inline Math::Vector2 GameObject::Pos() const
 		{
-			return m_PhysicsProperties.m_pos;
+			return m_pos;
 		}
 
 		inline Math::Vector2 GameObject::Vel() const
@@ -36,7 +36,7 @@ namespace Engine
 
 		inline void GameObject::Pos(const Math::Vector2& i_pos)
 		{
-			m_PhysicsProperties.m_pos = i_pos;
+			m_pos = i_pos;
 		}
 
 		inline void GameObject::Vel(const Math::Vector2& i_vel)
@@ -49,7 +49,7 @@ namespace Engine
 			assert(i_backbufferDC != nullptr);
 			assert(i_spriteDC != nullptr);
 			
-			m_sprite->Draw(i_backbufferDC, i_spriteDC, &m_PhysicsProperties.m_pos);
+			m_sprite->Draw(i_backbufferDC, i_spriteDC, &m_pos);
 		}
 	}
 }

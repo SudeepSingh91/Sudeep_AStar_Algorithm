@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Controllers">
       <UniqueIdentifier>{212c48d7-96b3-4128-b846-ccbcb6b5a4dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Controllers">
-      <UniqueIdentifier>{85096289-9957-408d-a6c6-b6ca6617e233}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\GameObject.h">
@@ -33,25 +30,13 @@
     <ClInclude Include="GameObject\GameObject-inl.h">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Controllers\AIController.h">
-      <Filter>Header Files\Controllers</Filter>
-    </ClInclude>
     <ClInclude Include="Controllers\IGameObjectController.h">
-      <Filter>Header Files\Controllers</Filter>
-    </ClInclude>
-    <ClInclude Include="Controllers\PlayerController.h">
       <Filter>Header Files\Controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\GameObject.cpp">
       <Filter>Source Files\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Controllers\AIController.cpp">
-      <Filter>Source Files\Controllers</Filter>
-    </ClCompile>
-    <ClCompile Include="Controllers\PlayerController.cpp">
-      <Filter>Source Files\Controllers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

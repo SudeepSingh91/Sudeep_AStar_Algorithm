@@ -1,17 +1,20 @@
 #include "GameObject.h"
 
+#include <utility>
+
 #include "../../Sprite/Sprite.h"
 
 namespace Engine
 {
 	namespace GameObject
 	{
-		GameObject::GameObject(const HINSTANCE i_appid, const Physics::ObjectProperties& i_objProperty, int i_imageId, int i_maskId) : m_PhysicsProperties(i_objProperty)
+		GameObject::GameObject(const HINSTANCE i_appid, const Math::Vector2& i_pos, const Physics::ObjectProperties& i_objProperty, int i_imageId, int i_maskId) 
+			: m_PhysicsProperties(i_objProperty), m_pos(i_pos), m_sprite(nullptr)
 		{
 			m_sprite = new Sprite::Sprite(i_appid, i_imageId, i_maskId);
 		}
 
-		GameObject::GameObject(const GameObject& i_obj) : m_PhysicsProperties(i_obj.m_PhysicsProperties)
+		GameObject::GameObject(const GameObject& i_obj) : m_PhysicsProperties(i_obj.m_PhysicsProperties), m_pos(i_obj.m_pos), m_sprite(nullptr)
 		{
 			m_sprite = new Sprite::Sprite(*i_obj.m_sprite);
 			
@@ -36,7 +39,7 @@ namespace Engine
 			return *this;
 		}
 
-		GameObject::GameObject(GameObject&& i_obj) : m_PhysicsProperties(i_obj.m_PhysicsProperties), m_sprite(i_obj.m_sprite)
+		GameObject::GameObject(GameObject&& i_obj) : m_PhysicsProperties(i_obj.m_PhysicsProperties), m_pos(i_obj.m_pos), m_sprite(i_obj.m_sprite)
 		{
 			i_obj.m_sprite = nullptr;
 
@@ -47,8 +50,9 @@ namespace Engine
 		{
 			if (this != &i_obj)
 			{
-				m_PhysicsProperties = i_obj.m_PhysicsProperties;
-				m_sprite = i_obj.m_sprite;
+				std::swap(m_PhysicsProperties, i_obj.m_PhysicsProperties);
+				std::swap(m_pos, i_obj.m_pos);
+				std::swap(m_sprite, i_obj.m_sprite);
 				i_obj.m_sprite = nullptr;
 
 				DEBUG_PRINT("Called Move Assignment operator for Gameobject");

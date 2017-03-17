@@ -17,7 +17,7 @@ namespace Engine
 		class GameObject
 		{
 		public:
-			GameObject(const HINSTANCE i_appid, const Physics::ObjectProperties& i_objProperty, int i_imageId, int i_maskId);
+			GameObject(const HINSTANCE i_appid, const Math::Vector2& i_pos, const Physics::ObjectProperties& i_objProperty, int i_imageId, int i_maskId);
 			GameObject(const GameObject& i_obj);
 			GameObject& operator=(const GameObject& i_obj);
 
@@ -40,6 +40,7 @@ namespace Engine
 
 		private:
 			Physics::ObjectProperties m_PhysicsProperties;
+			Math::Vector2 m_pos;
 			Sprite::Sprite* m_sprite;
 		};
 	}

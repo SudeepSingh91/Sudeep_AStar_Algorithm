@@ -27,6 +27,12 @@
     <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.cpp">
       <Filter>Source Files\Gameplay</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\AIController.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\PlayerController.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\resource1.h">
+      <Filter>Header Files\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\AIController.h">
+      <Filter>Header Files\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\PlayerController.h">
       <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>

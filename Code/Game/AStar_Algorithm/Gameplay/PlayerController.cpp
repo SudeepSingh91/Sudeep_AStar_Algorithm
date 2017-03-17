@@ -1,13 +1,13 @@
 #include "PlayerController.h"
-#include "../GameObject/GameObject.h"
+#include "GameObject/GameObject/GameObject.h"
 
-#include "../../Math/Vector2/Vector2.h"
+#include "Math/Vector2/Vector2.h"
 
 namespace Engine
 {
 	namespace GameObject
 	{
-		PlayerController::PlayerController(const GameObject* const i_gameObj) : m_gameObj(const_cast<GameObject*>(i_gameObj)), m_pos(nullptr), m_vel(nullptr)
+		PlayerController::PlayerController(GameObject* const i_gameObj) : m_gameObj(i_gameObj), m_pos(nullptr), m_vel(nullptr)
 		{
 			m_pos = new Math::Vector2;
 			m_vel = new Math::Vector2;

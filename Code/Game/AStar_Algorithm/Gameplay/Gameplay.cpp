@@ -3,7 +3,7 @@
 
 #include "DebugFunctions/DebugFunctions.h"
 #include "GameObject/GameObject/GameObject.h"
-#include "GameObject/Controllers/PlayerController.h"
+#include "PlayerController.h"
 #include "Physics/ObjectProperties/ObjectProperties.h"
 #include "UserInput/UserInput.h"
 
@@ -49,11 +49,14 @@ namespace Game
 
 			m_enemy = m_player + 1;
 			
-			Physics::ObjectProperties playerprop(Math::Vector2(500.0f, 400.0f), Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
-			Physics::ObjectProperties enemyprop(Math::Vector2(700.0f, 400.0f), Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);
+			Math::Vector2 playerpos(500.0f, 400.0f);
+			Math::Vector2 enemypos(700.0f, 400.0f);
 
-			*m_player = GameObject::GameObject(i_appid, playerprop, IDB_ALIEN, IDB_ALIENMASK);
-			*m_enemy = GameObject::GameObject(i_appid, enemyprop, IDB_JET, IDB_JETMASK);
+			Physics::ObjectProperties playerprop(Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
+			Physics::ObjectProperties enemyprop(Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);
+
+			*m_player = GameObject::GameObject(i_appid, playerpos, playerprop, IDB_ALIEN, IDB_ALIENMASK);
+			*m_enemy = GameObject::GameObject(i_appid, enemypos, enemyprop, IDB_JET, IDB_JETMASK);
 
 			m_playerController = new GameObject::PlayerController(m_player);
 

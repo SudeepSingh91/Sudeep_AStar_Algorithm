@@ -1,7 +1,7 @@
 #ifndef PLAYERCONTROLLER_H
 #define PLAYERCONTROLLER_H
 
-#include "IGameObjectController.h"
+#include "GameObject/Controllers/IGameObjectController.h"
 
 namespace Engine
 {
@@ -12,7 +12,7 @@ namespace Engine
 		class PlayerController : public IGameObjectController
 		{
 		public:
-			PlayerController(const GameObject* const i_gameObj);
+			PlayerController(GameObject* const i_gameObj);
 			~PlayerController();
 
 			void Update(const float i_dt, const Math::Vector2& i_force) final;

@@ -19,12 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\AIController.cpp" />
     <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.cpp" />
+    <ClCompile Include="Code\Game\AStar_Algorithm\Gameplay\PlayerController.cpp" />
     <ClCompile Include="Code\Game\AStar_Algorithm\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\AIController.h" />
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay-inl.h" />
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\Gameplay.h" />
+    <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\PlayerController.h" />
     <ClInclude Include="Code\Game\AStar_Algorithm\Gameplay\resource1.h" />
   </ItemGroup>
   <ItemGroup>
