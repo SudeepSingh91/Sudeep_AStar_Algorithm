@@ -7,7 +7,11 @@
 
 int WINAPI WinMain(const HINSTANCE i_hInstance, const HINSTANCE i_hprevInstance, const PSTR i_cmdLine, const int i_showCmd)
 {
-	Engine::Windows::WindowData myWindow(i_hInstance);
+	const int topx = 150;
+	const int topy = 20;
+	const int windowWidth = 1200;
+	const int windowHeight = 800;
+	Engine::Windows::WindowData myWindow(i_hInstance, topx, topy, windowWidth, windowHeight);
 
 	Game::Gameplay::Gameplay* gameplay =  Game::Gameplay::Gameplay::GetGame();
 	gameplay->InitializeSprite(myWindow.AppInstance());
@@ -22,7 +26,7 @@ int WINAPI WinMain(const HINSTANCE i_hInstance, const HINSTANCE i_hprevInstance,
 	MSG msg;
 	ZeroMemory(&msg, sizeof(MSG));
 
-	while ((msg.wParam != WM_QUIT) && (!myWindow.IfEnded()))
+	while (msg.message != WM_QUIT)
 	{
 		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 		{

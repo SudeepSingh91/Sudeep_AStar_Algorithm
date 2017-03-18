@@ -11,15 +11,5 @@ namespace Engine
 		{
 			return m_windowHandle;
 		}
-
-		inline bool WindowData::IfEnded() const
-		{
-			return m_hasEnded;
-		}
-
-		inline void WindowData::SetEnded(const bool i_ifEnded)
-		{
-			m_hasEnded = i_ifEnded;
-		}
 	}
 }

@@ -6,15 +6,12 @@ namespace Engine
 {
 	namespace Windows
 	{
-		bool WindowData::m_hasEnded = false;
-		
 		LRESULT CALLBACK WndProc(const HWND i_hWnd, const UINT i_msg, const WPARAM i_wParam, const LPARAM i_lParam)
 		{
 			switch (i_msg)
 			{
 			case WM_DESTROY:
 				DEBUG_PRINT("Pressed close button on top right of window");
-				WindowData::SetEnded(true);
 				PostQuitMessage(0);
 				return 0;
 			}
@@ -22,7 +19,7 @@ namespace Engine
 			return DefWindowProc(i_hWnd, i_msg, i_wParam, i_lParam);
 		}
 		
-		WindowData::WindowData(const HINSTANCE i_hinstance) : m_appInstance(i_hinstance)
+		WindowData::WindowData(const HINSTANCE i_hinstance, const int i_topx, const int i_topy, const int i_width, const int i_height) : m_appInstance(i_hinstance)
 		{
 			assert(i_hinstance != nullptr);
 
@@ -47,7 +44,7 @@ namespace Engine
 
 			RegisterClass(&wc);
 
-			m_windowHandle = ::CreateWindow("AStar_WindowClass", "AStar_Window", WS_OVERLAPPEDWINDOW, 100, 20, 1200, 800, 0, 0, m_appInstance, 0);
+			m_windowHandle = ::CreateWindow("AStar_WindowClass", "AStar_Window", WS_OVERLAPPEDWINDOW, i_topx, i_topy, i_width, i_height, 0, 0, m_appInstance, 0);
 
 			assert(m_windowHandle != 0);
 

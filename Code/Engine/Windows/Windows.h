@@ -10,19 +10,14 @@ namespace Engine
 		class WindowData
 		{
 		public:
-			WindowData(const HINSTANCE i_hinstance);
-
-			static inline void SetEnded(const bool i_ifEnded);
+			WindowData(const HINSTANCE i_hinstance, const int i_topx, const int i_topy, const int i_width, const int i_height);
 
 			inline HINSTANCE AppInstance() const;
 			inline HWND WindowHandle() const;
-			inline bool IfEnded() const;
 
 		private:
 			WindowData(const WindowData& i_windowData);
 			WindowData& operator=(const WindowData& i_windowData);
-
-			static bool m_hasEnded;
 
 			const HINSTANCE m_appInstance;
 			HWND m_windowHandle;
