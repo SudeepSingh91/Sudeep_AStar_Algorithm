@@ -6,7 +6,7 @@ namespace Engine
 {
 	namespace Timing
 	{
-		Timing* Timing::m_timing = 0;
+		Timing* Timing::m_timing = nullptr;
 		
 		Timing::Timing() : m_secondsPerTick(0.0f), m_totalTicksElapsed_atInitializion({ 0 }), m_totalTicksElapsed_duringRun({ 0 }), 
 			m_totalTicksElapsed_previousFrame({ 0 })
@@ -21,7 +21,7 @@ namespace Engine
 
 		Timing* Timing::GetTimer()
 		{
-			if (m_timing == 0)
+			if (m_timing == nullptr)
 			{
 				m_timing = new Timing;
 			}
@@ -83,7 +83,7 @@ namespace Engine
 
 		void Timing::StopTimer()
 		{
-			if (m_timing != 0)
+			if (m_timing != nullptr)
 			{
 				delete m_timing;
 

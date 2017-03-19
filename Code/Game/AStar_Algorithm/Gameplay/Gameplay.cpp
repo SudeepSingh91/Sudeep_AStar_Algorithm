@@ -11,21 +11,36 @@ namespace Game
 {
 	namespace Gameplay
 	{
-		Gameplay* Gameplay::m_gameplay = 0;
+		Gameplay* Gameplay::m_gameplay = nullptr;
 
-		Gameplay::Gameplay() : m_player(nullptr), m_enemy(nullptr)
+		Gameplay::Gameplay() : m_player(nullptr), m_enemy(nullptr), m_playerController(nullptr), m_backbuffer(nullptr)
 		{
 			
 		}
 
 		Gameplay::~Gameplay()
 		{
-
+			if (m_player != nullptr)
+			{
+				delete m_player;
+			}
+			if (m_enemy != nullptr)
+			{
+				delete m_enemy;
+			}
+			if (m_playerController != nullptr)
+			{
+				delete m_playerController;
+			}
+			if (m_backbuffer != nullptr)
+			{
+				delete m_backbuffer;
+			}
 		}
 
 		Gameplay* Gameplay::GetGame()
 		{
-			if (m_gameplay == 0)
+			if (m_gameplay == nullptr)
 			{
 				m_gameplay = new Gameplay;
 
@@ -37,17 +52,26 @@ namespace Game
 			return m_gameplay;
 		}
 
+		void Gameplay::DestroyGame()
+		{
+			if (m_gameplay != nullptr)
+			{
+				delete m_gameplay;
+
+				DEBUG_PRINT("Destroyed Gameplay");
+			}
+			else
+			{
+				DEBUG_PRINT("Gameplay does not exist fro destruction");
+			}
+		}
+
+
 		void Gameplay::InitializeSprite(HINSTANCE i_appid)
 		{
 			assert(i_appid != nullptr);
 			
 			using namespace Engine;
-
-			m_player = static_cast<GameObject::GameObject*>(_aligned_malloc(2 * sizeof(GameObject::GameObject), 64));
-
-			assert(m_player != nullptr);
-
-			m_enemy = m_player + 1;
 			
 			Math::Vector2 playerpos(500.0f, 400.0f);
 			Math::Vector2 enemypos(700.0f, 400.0f);
@@ -55,8 +79,8 @@ namespace Game
 			Physics::ObjectProperties playerprop(Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
 			Physics::ObjectProperties enemyprop(Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);
 
-			*m_player = GameObject::GameObject(i_appid, playerpos, playerprop, IDB_ALIEN, IDB_ALIENMASK);
-			*m_enemy = GameObject::GameObject(i_appid, enemypos, enemyprop, IDB_JET, IDB_JETMASK);
+			m_player = new GameObject::GameObject(i_appid, playerpos, playerprop, IDB_ALIEN, IDB_ALIENMASK);
+			m_enemy = new GameObject::GameObject(i_appid, enemypos, enemyprop, IDB_JET, IDB_JETMASK);
 
 			m_playerController = new GameObject::PlayerController(m_player);
 

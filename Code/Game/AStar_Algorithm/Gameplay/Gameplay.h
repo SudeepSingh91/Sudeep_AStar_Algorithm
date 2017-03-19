@@ -32,6 +32,7 @@ namespace Game
 			static Gameplay* GetGame();
 			~Gameplay();
 
+			void DestroyGame();
 			void InitializeSprite(HINSTANCE i_appid);
 			inline void InitializeBackBuffer(const HWND i_hwnd, const int i_width, const int i_height);
 			inline void DrawSprites();

@@ -28,8 +28,8 @@ namespace Engine
 
 		Sprite::Sprite(const Sprite& i_sprite)
 		{
-			m_himage = (HBITMAP)CopyImage(i_sprite.m_himage, IMAGE_BITMAP, i_sprite.width(), i_sprite.height(), LR_DEFAULTSIZE);
-			m_hmask = (HBITMAP)CopyImage(i_sprite.m_hmask, IMAGE_BITMAP, i_sprite.width(), i_sprite.height(), LR_DEFAULTSIZE);
+			m_himage = (HBITMAP)CopyImage(i_sprite.m_himage, IMAGE_BITMAP, i_sprite.Width(), i_sprite.Height(), LR_DEFAULTSIZE);
+			m_hmask = (HBITMAP)CopyImage(i_sprite.m_hmask, IMAGE_BITMAP, i_sprite.Width(), i_sprite.Height(), LR_DEFAULTSIZE);
 
 			assert(m_himage != nullptr);
 			assert(m_hmask != nullptr);
@@ -48,8 +48,8 @@ namespace Engine
 			DeleteObject(m_himage);
 			DeleteObject(m_hmask);
 			
-			m_himage = (HBITMAP)CopyImage(i_sprite.m_himage, IMAGE_BITMAP, i_sprite.width(), i_sprite.height(), LR_DEFAULTSIZE);
-			m_hmask = (HBITMAP)CopyImage(i_sprite.m_hmask, IMAGE_BITMAP, i_sprite.width(), i_sprite.height(), LR_DEFAULTSIZE);
+			m_himage = (HBITMAP)CopyImage(i_sprite.m_himage, IMAGE_BITMAP, i_sprite.Width(), i_sprite.Height(), LR_DEFAULTSIZE);
+			m_hmask = (HBITMAP)CopyImage(i_sprite.m_hmask, IMAGE_BITMAP, i_sprite.Width(), i_sprite.Height(), LR_DEFAULTSIZE);
 
 			assert(m_himage != nullptr);
 			assert(m_hmask != nullptr);
@@ -81,8 +81,8 @@ namespace Engine
 			assert(i_backbufferDC != nullptr);
 			assert(i_spriteDC != nullptr);
 			
-			const int sprWidth = width();
-			const int sprHeight = height();
+			const int sprWidth = Width();
+			const int sprHeight = Height();
 
 			const int halvingValue = 2;
 			const int posx = static_cast<int>(i_pos->x() - (sprWidth / halvingValue));

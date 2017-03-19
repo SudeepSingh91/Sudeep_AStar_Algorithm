@@ -14,6 +14,16 @@ namespace Engine
 			return m_PhysicsProperties.m_mass;
 		}
 
+		inline float GameObject::Width() const
+		{
+			return static_cast<float>(m_sprite->Width());
+		}
+
+		inline float GameObject::Height() const
+		{
+			return static_cast<float>(m_sprite->Height());
+		}
+
 		inline Math::Vector2 GameObject::Pos() const
 		{
 			return m_pos;

@@ -2,12 +2,12 @@ namespace Engine
 {
 	namespace Sprite
 	{
-		inline int Sprite::width() const
+		inline int Sprite::Width() const
 		{
 			return m_imagebm.bmWidth;
 		}
 
-		inline int Sprite::height() const
+		inline int Sprite::Height() const
 		{
 			return m_imagebm.bmHeight;
 		}

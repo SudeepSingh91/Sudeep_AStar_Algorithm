@@ -28,6 +28,8 @@ namespace Engine
 
 			inline float Drag() const;
 			inline float Mass() const;
+			inline float Width() const;
+			inline float Height() const;
 			inline Math::Vector2 Pos() const;
 			inline Math::Vector2 Vel() const;
 

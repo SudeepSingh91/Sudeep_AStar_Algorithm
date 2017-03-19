@@ -21,8 +21,8 @@ namespace Engine
 
 			~Sprite();
 
-			inline int width() const;
-			inline int height() const;
+			inline int Width() const;
+			inline int Height() const;
 
 			void Update(float i_dt);
 			void Draw(const HDC i_backbufferDC, const HDC i_spriteDC, const Math::Vector2* const i_pos) const;
