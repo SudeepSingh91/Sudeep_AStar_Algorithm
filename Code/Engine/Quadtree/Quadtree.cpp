@@ -20,7 +20,7 @@ namespace Engine
 
 		}
 
-		Quadtree* GetNextQuads(std::vector<GameObject::GameObject*>* i_gameObjList, const Math::Vector2& i_pos, const float i_width, const float i_height)
+		Quadtree* Quadtree::GetNextQuads(std::vector<GameObject::GameObject*>* i_gameObjList, const Math::Vector2& i_pos, const float i_width, const float i_height)
 		{
 			Quadtree* node = new Quadtree(i_pos, i_width, i_height);
 			if (!node->CreateQuads(i_gameObjList))
@@ -52,33 +52,33 @@ namespace Engine
 
 		bool Quadtree::CreateQuads(std::vector<GameObject::GameObject*>* i_gameObjList)
 		{
-			assert(i_gameObjList->size != 0);
+			assert(i_gameObjList != nullptr);
 
-			for (size_t i = 0; i < i_gameObjList->size; i++)
+			for (const auto& iter : *i_gameObjList)
 			{
-				if (IsObjectInside(i_gameObjList->at[i]))
+				if (IsObjectInside(iter))
 				{
-					if (IsObjectCornerInside(i_gameObjList->at[i]))
+					if (IsObjectCornerInside(iter))
 					{
-						DEBUG_PRINT("\Quad at (%f, &f) is partially filled", m_pos.x(), m_pos.y());
+						DEBUG_PRINT("Quad at (%f, &f) is partially filled", m_pos.x(), m_pos.y());
 
-						const Math::Vector2 leftTop = Math::Vector2(m_pos.x() - (m_width / 2.0f), m_pos.y() - (m_height / 2.0f));
-						const Math::Vector2 leftBottom = Math::Vector2(m_pos.x() - (m_width / 2.0f), m_pos.y() + (m_height / 2.0f));
-						const Math::Vector2 rightTop = Math::Vector2(m_pos.x() + (m_width / 2.0f), m_pos.y() - (m_height / 2.0f));
-						const Math::Vector2 rightBottom = Math::Vector2(m_pos.x() + (m_width / 2.0f), m_pos.y() + (m_height / 2.0f));
+						const Math::Vector2 leftTop = Math::Vector2(m_pos.x() - (m_width / 4.0f), m_pos.y() - (m_height / 4.0f));
+						const Math::Vector2 leftBottom = Math::Vector2(m_pos.x() - (m_width / 4.0f), m_pos.y() + (m_height / 4.0f));
+						const Math::Vector2 rightTop = Math::Vector2(m_pos.x() + (m_width / 4.0f), m_pos.y() - (m_height / 4.0f));
+						const Math::Vector2 rightBottom = Math::Vector2(m_pos.x() + (m_width / 4.0f), m_pos.y() + (m_height / 4.0f));
 						const float halfWidth = m_width / 2.0f;
 						const float halfHeight = m_height / 2.0f;
 
 						m_northEast = GetNextQuads(i_gameObjList, rightTop, halfWidth, halfHeight);
 						m_northWest = GetNextQuads(i_gameObjList, leftTop, halfWidth, halfHeight);
 						m_southEast = GetNextQuads(i_gameObjList, rightBottom, halfWidth, halfHeight);
-						m_southWest = GetNextQuads(i_gameObjList, rightTop, halfWidth, halfHeight);
-
+						m_southWest = GetNextQuads(i_gameObjList, leftBottom, halfWidth, halfHeight);
+						
 						return true;
 					}
 					else
 					{
-						DEBUG_PRINT("\Quad at (%f, &f) is completely filled", m_pos.x(), m_pos.y());
+						DEBUG_PRINT("Quad at (%f, &f) is completely filled", m_pos.x(), m_pos.y());
 
 						return false;
 					}

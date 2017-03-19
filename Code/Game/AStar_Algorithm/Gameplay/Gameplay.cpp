@@ -1,11 +1,14 @@
 #include "Gameplay.h"
 #include "resource1.h"
 
+#include <vector>
+
 #include "DebugFunctions/DebugFunctions.h"
 #include "GameObject/GameObject/GameObject.h"
 #include "PlayerController.h"
 #include "Physics/ObjectProperties/ObjectProperties.h"
 #include "UserInput/UserInput.h"
+#include "Quadtree/Quadtree.h"
 
 namespace Game
 {
@@ -13,7 +16,7 @@ namespace Game
 	{
 		Gameplay* Gameplay::m_gameplay = nullptr;
 
-		Gameplay::Gameplay() : m_player(nullptr), m_enemy(nullptr), m_playerController(nullptr), m_backbuffer(nullptr)
+		Gameplay::Gameplay() : m_player(nullptr), m_enemy(nullptr), m_playerController(nullptr), m_backbuffer(nullptr), m_quadtree(nullptr), m_spritedc(nullptr)
 		{
 			
 		}
@@ -66,6 +69,13 @@ namespace Game
 			}
 		}
 
+		void Gameplay::InitializeQuadtree(const int i_width, const int i_height)
+		{
+			float width = static_cast<float>(i_width);
+			float height = static_cast<float>(i_height);
+			Engine::Math::Vector2 pos(width / 2.0f, height / 2.0f);
+			m_quadtree = new Engine::AStar::Quadtree(pos, width, height);
+		}
 
 		void Gameplay::InitializeSprite(HINSTANCE i_appid)
 		{
@@ -73,8 +83,8 @@ namespace Game
 			
 			using namespace Engine;
 			
-			Math::Vector2 playerpos(500.0f, 400.0f);
-			Math::Vector2 enemypos(700.0f, 400.0f);
+			Math::Vector2 playerpos(50.0f, 50.0f);
+			Math::Vector2 enemypos(900.0f, 600.0f);
 
 			Physics::ObjectProperties playerprop(Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
 			Physics::ObjectProperties enemyprop(Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);
@@ -111,8 +121,19 @@ namespace Game
 			{
 				playerForce = playerForce + Math::Vector2(0.0f, 10.0f);
 			}
+			else if (UserInput::IsKeyPressed('Q'))
+			{
+				GenerateQuadtree();
+			}
 
 			m_playerController->Update(i_dt, playerForce);
+		}
+
+		void Gameplay::GenerateQuadtree()
+		{
+			std::vector<Engine::GameObject::GameObject*> gameObjList;
+			gameObjList.push_back(m_player);
+			m_quadtree->CreateQuads(&gameObjList);
 		}
 	}
 }
