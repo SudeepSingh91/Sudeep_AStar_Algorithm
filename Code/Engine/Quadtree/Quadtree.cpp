@@ -12,12 +12,12 @@ namespace Engine
 		Quadtree::Quadtree(const Math::Vector2& i_pos, const float i_width, const float i_height)
 			: m_pos(i_pos), m_width(i_width), m_height(i_height), m_northEast(nullptr), m_northWest(nullptr), m_southEast(nullptr), m_southWest(nullptr)
 		{
-
+			
 		}
 
 		Quadtree::~Quadtree()
 		{
-
+			
 		}
 
 		Quadtree* Quadtree::GetNextQuads(std::vector<GameObject::GameObject*>* i_gameObjList, const Math::Vector2& i_pos, const float i_width, const float i_height)
@@ -29,6 +29,14 @@ namespace Engine
 			}
 
 			return node;
+		}
+
+		Quadtree* Quadtree::QuadHasPoint(const Math::Vector2& i_point)
+		{
+			std::vector<Quadtree*> open_list;
+			open_list.push_back(this);
+
+			return nullptr;
 		}
 
 		bool Quadtree::IsObjectInside(const GameObject::GameObject* const i_gameObj)

@@ -26,6 +26,7 @@ namespace Engine
 			inline Quadtree* SouthWest() const;
 
 			bool CreateQuads(std::vector<GameObject::GameObject*>* i_gameObjList);
+			Quadtree* QuadHasPoint(const Math::Vector2& i_point);
 		private:
 			Quadtree(const Quadtree& i_quadtree);
 			Quadtree& operator=(const Quadtree& i_quadtree);

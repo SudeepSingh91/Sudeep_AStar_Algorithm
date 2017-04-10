@@ -84,7 +84,7 @@ namespace Game
 			using namespace Engine;
 			
 			Math::Vector2 playerpos(50.0f, 50.0f);
-			Math::Vector2 enemypos(900.0f, 600.0f);
+			Math::Vector2 enemypos(600.0f, 400.0f);
 
 			Physics::ObjectProperties playerprop(Math::Vector2(0.0f, 0.0f), 80.0f, 0.8f);
 			Physics::ObjectProperties enemyprop(Math::Vector2(0.0f, 0.0f), 60.0f, 0.6f);

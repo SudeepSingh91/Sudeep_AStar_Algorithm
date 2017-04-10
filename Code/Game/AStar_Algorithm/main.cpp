@@ -48,7 +48,7 @@ int WINAPI WinMain(const HINSTANCE i_hInstance, const HINSTANCE i_hprevInstance,
 			timer->OnNewFrame();
 			const float dt = timer->GetElapsedSecondCount_duringPreviousFrame();
 			gameplay->UpdateGameObjects(dt);
-			//gameplay->DrawSprites();
+			gameplay->DrawSprites();
 		}
 	}
 
